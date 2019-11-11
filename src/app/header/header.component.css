@@ -1,0 +1,100 @@
+.header-container {
+    background: #fff;
+    border-bottom: 1px solid#e0e0e0;
+  }
+  
+  .logo img {
+    width: 100%;
+  }
+  
+  .search button {
+    border: 1px solid#e0e0e0;
+  }
+  
+  .categories {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .account .btn {
+    border: 1px solid#000;
+  }
+  
+  .account ul {
+    padding: 0 0 0 15px;
+  }
+  
+    .account ul li {
+      text-decoration: none;
+      display: inline;
+    }
+  
+      .account ul li a {
+        font-size: 16px;
+        color: #212121;
+        position: relative;
+        top: 4px;
+        display: inline-block;
+        left: 10px;
+      }
+  
+        .account ul li a:hover {
+          text-decoration: none;
+        }
+  
+  .account i {
+    cursor: pointer;
+    margin: 15px 5px;
+    position: relative;
+    top: 3px;
+    font-size: 26px;
+  }
+  
+  .account .user {
+    position: relative;
+    top: 3px;
+  }
+  
+  .account .shopping-cart {
+    position: relative;
+    top: 4px;
+  }
+  
+  .account i.language-icon {
+    margin: 15px 0;
+    padding: 4px 2px;
+    border: none;
+    border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    -webkit-border-radius: 3px 0 0 3px
+  }
+  
+  .account select {
+    float: left;
+    margin: 18px 0;
+    padding: 5.4px 2.3px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  option {
+    padding: 5.4px 2.3px;
+  }
+  
+
+  kendo-popup{
+      min-height: 50vh;
+      min-width: 80vh;
+      background-color: #000;
+
+  }
+
+  kendo-popup .content div{
+      text-decoration: underline;
+      color:#e0e0e0;
+      background-color: #000000;
+  }
+
+  kendo-popup .content div:first-child{
+    background-color: #808080;
+}

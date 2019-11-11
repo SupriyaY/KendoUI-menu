@@ -1,0 +1,111 @@
+<div class="header-container">
+    <div class="row d-flex align-items-center justify-content-between">
+      <!-- <app-menu></app-menu> -->
+      <!-- <div class="logo col-xs-12 col-sm-12 col-md-2 col-lg-2">
+        <a [routerLink]="['/']"><img src="../../assets/images/kawneer_logo.JPG" alt="logo"></a>
+      </div> -->
+      <!--end logo-->
+      <div class="mt-2 mb-2 col-xs-12 col-sm-12 col-md-7 col-lg-7">
+        <!-- <app-search></app-search> -->
+      </div>
+      <div class="account mt-2 mb-2 col-xs-12 col-sm-12 col-md-12 col-lg-2">
+        <!--FOR LANGUAGE DROPDOWNS-->
+        <i class="language-icon material-icons float-left">language</i>
+        <select>
+          <!-- <option *ngFor="let user of users" value="eng">{{user.id}}</option>-->
+          <option value="0">eng</option>
+          <option value="1">fre</option>
+        </select>
+        <ul>
+          <li class="login fader">Sign Out</li>
+          <li class="user fader" #anchor (click)="onToggle()"><span class="k-icon k-i-user"></span></li>
+          <li class="shopping-cart fader"><span class="k-icon k-i-cart k-i-shopping-car"></span></li>
+        </ul>
+        <kendo-popup [anchor]="anchor" (anchorViewportLeave)="show = false" *ngIf="!show">
+          <div class='content'>
+            <!-- User-defined content -->
+            <div><span class="k-icon k-i-user"></span>You are logged in as username</div>
+            <div><span class="k-icon k-i-track-changes"></span>Manage Addresses</div>
+            <div kendoButton *ngIf="!opened" (click)="open()"><span class="k-icon k-i-lock"></span>Change Password</div>
+            <div><span class="k-icon k-i-file-vertical"></span>View/Print CMP</div>
+            <div><span class="k-icon k-i-dollar"></span>Account Summary</div>
+            <div><span class="k-icon k-i-myspace"></span>Manage Accounts</div>
+          </div>
+        </kendo-popup>
+        <kendo-dialog title="Please confirm" *ngIf="opened" (close)="close('cancel')" [minWidth]="250" [width]="500">
+          <form novalidate (ngSubmit)="save()"
+                [formGroup]="passwordForm">
+        
+              <div class="form-group row">
+        
+                  <label for="oldpasswordId" class="col-sm-6 col-form-label">Old Password</label>
+                  <div class="col-xs-8">
+                          <input id="oldpasswordId" class="form-control" type="password" maxlength="30">
+        
+                  </div>
+        
+        
+                  <div formGroupName="passwordGroup" class="form-group row">
+        
+                      <label for="newpasswordId" class="col-sm-6 col-form-label">New Password</label>
+                      <div class="col-xs-8">
+                              <input id="newpasswordId"
+                                     class="form-control"
+                                     type="password"
+                                     maxlength="30"
+                                     formControlName="newpassword"
+                                     [ngClass]="{'is-invalid': passwordForm.get('passwordGroup').errors ||
+                         ((passwordForm.get('passwordGroup.newpassword').touched ||
+                         passwordForm.get('passwordGroup.newpassword').dirty) &&
+                         !passwordForm.get('passwordGroup.newpassword').valid) }" />
+                          <div class="invalid-feedback">
+                              <div *ngIf="passwordForm.get('passwordGroup.newpassword').errors?.minlength">
+                                  <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Password must be at least 8 characters
+                              </div>
+                          </div>
+        
+        
+        
+                      </div>
+        
+        
+                      <label for="confirmpasswordId" class="col-sm-6 col-form-label">Confirm New Password</label>
+                      <div class="col-xs-8">
+                              <input id="comfirmpasswordId" class="form-control"
+                                     type="password"
+                                     maxlength="30"
+                                     formControlName="confirmpassword"
+                                     [ngClass]="{'is-invalid': passwordForm.get('passwordGroup').errors ||
+                         ((passwordForm.get('passwordGroup.confirmpassword').touched ||
+                         passwordForm.get('passwordGroup.confirmpassword').dirty) &&
+                         !passwordForm.get('passwordGroup.confirmpassword').valid) }" />
+                          <div class="invalid-feedback">
+                              <div *ngIf="passwordForm.get('passwordGroup').errors?.match">
+                                  <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Passwords do not match
+                              </div>
+                          </div>
+        
+                      </div>
+        
+                  </div>
+        
+        
+              </div>
+        
+              <div class="container">
+                  <div class=text-center>
+                      <button type="button" class="btn btn btn-primary mr-3"  [title]="passwordForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                          [disabled]="!passwordForm.valid"><i class="fa fa-floppy-o" aria-hidden="true"></i>Save</button>
+                  </div>
+              </div>
+        
+          </form>
+
+
+          <kendo-dialog-actions>
+        
+          </kendo-dialog-actions>
+        </kendo-dialog>
+      </div><!--end account-->
+    </div><!--end row-->
+  </div><!--end header-container-->
